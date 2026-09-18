@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: #4F6FE8;
+    text-align: center;
+    padding: 10px;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #cbd0e2;
+    
+
+}
+#fundoPai{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+#ContainerPai{
+    width: 90vw;
+    height: 100vh;
+    display: flex;
+    background-color: #F4F6FA;
+    flex-direction: column;
+    align-items: center;
+}
+.dadosCartao{
+    margin: 25px 0px;
+    background-color: #FFFFFF;
+    width: 70vw;
+    height: 30vh;
+    text-align: center;
+    border: 2px solid #08255f;
+    border-radius: 15px;
+}
+
+.dadosCartao h2{
+    padding: 10px 0px;
+    color:#000000;
+}
+
+.dadosCartao p {
+    margin: 6px;
+    padding: 10px;
+    color: #000f24;
+}
+
+hr{
+    border: .1px solid black;
+}
+.formulario{
+    margin: 25px 0px;
+    background-color: #FFFFFF;
+    width: 70vw;
+    height: 35vh;
+    text-align: center;
+    border: 2px solid #08255f;
+    border-radius: 15px;
+
+}
+
+.formulario h2{
+    padding: 10px 0px;
+}
+
+#butcadastro{
+    margin-top: 21px;
+    padding: 15px;
+    width: 500px;
+    background: #2563EB;
+    color: rgb(9, 14, 63);
+    font-weight: bold;
+}
+
+#butcadastro:hover{
+    background-color: #1D4ED8;
+
+}
+label, input, select{
+    margin-top: 10px;
+    padding: 8px;
+}
+input, select{
+    margin-left: 10px;
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 1px #0e0e0e1c;
+    border: 1px solid #08255f;
+}
+
+.ajustarPosition{
+    margin-left: -30px;
+}
+label{
+    color: #000f24;
+    font-weight: bold;
+}
