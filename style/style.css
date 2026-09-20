@@ -147,6 +147,18 @@ header{
     border-right: 1px solid #24344a;
   }
 
+  .excluir {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.excluir:hover {
+    background-color: #b02a37;
+}
 
 @media (max-width: 720px){
     .dadosGrid{ 
