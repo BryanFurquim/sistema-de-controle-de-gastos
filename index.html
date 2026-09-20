@@ -12,118 +12,154 @@
     <header>
       <h1>Sistema de Controle de Gastos</h1>
     </header>
-    <div class="page">
-        <div class="dadosCartao">
-            <h2>Dados do Cartão : </h2>
-            <div class="dadosGrid">
-            <div class="cardInfos">
-                <label>RESPONSÁVEL</label>
-                <div class="bold">Eduardo Amaral</div>
-            </div>
-            <div class="cardInfos">
-                <label>DEPARTAMENTO</label>
-                <div class="bold">Compras</div>
-            </div>
-            <div class="cardInfos">
-                <label>LIMITE MENSAL</label>
-                <div class="bold">R$ 5.000,00</div>
-            </div>
-            <div class="cardInfos">
-                <label>TOTAL GASTO</label>
-                <div class="Vgasto">R$ 100,00</div>
-            </div>
-            <div class="cardInfos">
-                <label>SALDO DISPONÍVEL</label>
-                <div class="Vdisponivel">R$ 4.900,00</div>
-            </div>
-            </div>
-  </div>
+    
+<main>
+      <div class="page">
 
-  <div class="cadastro">
-    <h2>Cadastrar Gasto :</h2>
-    <form >
-      <div class="cadastroDoGasto">
-        <label for="idescricao">Descrição</label>
-        <input type="text" id="idescricao" placeholder="Ex : Compra do mês">
+          <div class="dadosCartao">
+              <h2>Dados do Cartão : </h2>
+              <div class="dadosGrid">   
+
+                <div class="cardInfos">
+                  <label>RESPONSÁVEL</label>
+                    <div class="bold">
+                      <p>Eduardo Amaral</p>
+                    </div>
+                </div>
+
+                <div class="cardInfos">
+                    <label>DEPARTAMENTO</label>
+                      <div class="bold">
+                        <p>Compras</p>
+                      </div>
+                </div>
+
+                <div class="cardInfos">
+                    <label>LIMITE MENSAL</label>
+                      <div class="bold">
+                        <p>R$ 5.000,00</p>
+                      </div>
+                </div>
+
+                <div class="cardInfos">
+                    <label>TOTAL GASTO</label>
+                      <div class="Vgasto">
+                        <p>R$ 100,00</p>
+                      </div>
+                </div>
+
+                <div class="cardInfos">
+                    <label>SALDO DISPONÍVEL</label>
+                      <div class="Vdisponivel">
+                        <p>R$ 4.900,00</p>
+                      </div>
+                </div>
+              </div>
+            </div>
+    
+
+      <div class="cadastro">
+        <h2>Cadastrar Gasto :</h2>
+        <form id="formulario" method="post" action="./php/cadastroGasto.php">
+          
+          <div class="cadastroDoGasto">
+            <label for="idescricao">Descrição</label>
+            <input type="text" name="descricao" id="idescricao" placeholder="Ex : Compra do mês" required>
+          </div>
+
+          <div class="cadastroDoGasto">
+            <label for="icategoria">Categoria</label>
+              <select name="categoria" id="icategoria" required>
+                <option value="">Escolha uma opção</option>
+                <option value="alimentacao">Alimentação</option>
+                <option value="combustivel">Combustível</option>
+                <option value="material">Material</option>
+                <option value="transporte">Transporte</option>         
+                <option value="outros">Outros</option>
+              </select>
+          </div>
+
+          <div class="cadastroDoGasto">
+            <label for="ivalor">Valor (R$)</label>
+              <input type="number" name="valor" id="ivalor" placeholder="0,00" step="0.01" required>
+          </div>
+
+          <div class="cadastroDoGasto">
+            <label for="idata">Data</label>
+              <input type="date" name="data" id="idata" required>
+          </div>
+
+          <button type="submit" class="butCadastro">Cadastrar gasto</button>
+
+        </form>
       </div>
-      <div class="cadastroDoGasto">
-        <label for="icategoria">Categoria</label>
-        <select id="icategoria">
-          <option value="escolher">Escolha uma opção</option>
-          <option value="alimentacao">Alimentação</option>
-          <option value="combustivel">Combustível</option>
-          <option value="material">Material</option>
-          <option value="transporte">Transporte</option>         
-          <option value="outros">Outros</option>
-        </select>
+
+        <div class="lancamentos">
+          <h2>Lançamentos</h2>
+
+          <table>
+
+            <thead>
+
+              <tr>
+                <th>Data</th>
+                <th>Descrição</th>
+                <th>Categoria</th>
+                <th>Valor</th>
+                <th>Ação</th>
+              </tr>
+
+            </thead>
+
+            <tbody id="tabela-lancamentos">
+
+              <tr>
+                <td data-label="Data : "></td>
+                <td data-label="Descrição : "> </td>
+                <td data-label="Categoria : "> </td>
+                <td data-label="Valor : "> </td>
+                <td data-label="Ação : "> </td>
+              </tr>
+
+              <tr>
+                  <td data-label="Data :"> </td>
+                  <td data-label="Descrição : "> </td>
+                  <td data-label="Categoria : "> </td>
+                  <td data-label="Valor : "> </td>
+                  <td data-label="Ação : "> </td>
+              </tr>
+
+              <tr>
+                  <td data-label="Data :"> </td>
+                  <td data-label="Descrição : "> </td>
+                  <td data-label="Categoria : "> </td>
+                  <td data-label="Valor : "> </td>
+                  <td data-label="Ação : "> </td>
+              </tr>
+
+              <tr>
+                  <td data-label="Data :"> </td>
+                  <td data-label="Descrição : "> </td>
+                  <td data-label="Categoria : "> </td>
+                  <td data-label="Valor : "> </td>
+                  <td data-label="Ação : "> </td>
+              </tr>
+
+              <tr>
+                  <td data-label="Data :"> </td>
+                  <td data-label="Descrição : "> </td>
+                  <td data-label="Categoria : "> </td>
+                  <td data-label="Valor : "> </td>
+                  <td data-label="Ação : "> </td>
+              </tr>
+              
+            </tbody>
+
+          </table>
       </div>
-      <div class="cadastroDoGasto">
-        <label for="ivalor">Valor (R$)</label>
-        <input type="number" id="ivalor" placeholder="0,00" step="0.01">
-      </div>
-      <div class="cadastroDoGasto">
-        <label for="idata">Data</label>
-        <input type="date" id="idata">
-      </div>
-      <button type="submit" class="butCadastro">Cadastrar gasto</button>
-    </form>
-  </div>
 
-    <div class="lancamentos">
-    <h2>Lançamentos</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Data</th>
-          <th>Descrição</th>
-          <th>Categoria</th>
-          <th>Valor</th>
-          <th>Ação</th>
-        </tr>
-      </thead>
-      <tbody id="tabela-lancamentos">
-        <tr>
-          <td data-label="Data :"></td>
-          <td data-label="Descrição : "> </td>
-          <td data-label="Categoria : "> </td>
-          <td data-label="Valor : "> </td>
-          <td data-label="Ação : "> </td>
-        </tr>
-        <tr>
-            <td data-label="Data :"> </td>
-            <td data-label="Descrição : "> </td>
-            <td data-label="Categoria : "> </td>
-            <td data-label="Valor : "> </td>
-            <td data-label="Ação : "> </td>
-        </tr>
-         <tr>
-            <td data-label="Data :"> </td>
-            <td data-label="Descrição : "> </td>
-            <td data-label="Categoria : "> </td>
-            <td data-label="Valor : "> </td>
-            <td data-label="Ação : "> </td>
-        </tr>
-         <tr>
-            <td data-label="Data :"> </td>
-            <td data-label="Descrição : "> </td>
-            <td data-label="Categoria : "> </td>
-            <td data-label="Valor : "> </td>
-            <td data-label="Ação : "> </td>
-        </tr>
-         <tr>
-            <td data-label="Data :"> </td>
-            <td data-label="Descrição : "> </td>
-            <td data-label="Categoria : "> </td>
-            <td data-label="Valor : "> </td>
-            <td data-label="Ação : "> </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-</div>
-
-
-
+    </div>
+</main>
 </body>
+<script src="scripts/script.js"></script>
 </html>
