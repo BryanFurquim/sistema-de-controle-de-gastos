@@ -22,5 +22,30 @@ forms.addEventListener("submit", function(event){
     }
 
     alert("Gasto lançado, confira na tabela de lançamentos abaixo");
-    console.log("Formulário enviado")
+    console.log("Formulário enviado");
+});
+
+const tabelaLancamentos = document.getElementById
+
+("tabela-lancamentos") as HTMLTableSectionElement;
+
+fetch("./php/select.php")
+    .then((resposta)=> {
+        return resposta.text();
+    })
+    .then((html: string) => {
+        tabelaLancamentos.innerHTML =html;
+
+        const butExcluir = document.querySelectorAll(".excluir");
+
+        butExcluir.forEach((botao)=>{
+    
+            botao.addEventListener("click" , ()=> {
+                const ButId = botao.getAttribute("data-id");
+                 console.log(ButId);
+    });
+
+    });
+
+
 })

@@ -9,7 +9,6 @@
 try{
     $pdo = new PDO("mysql:host=$servidor;dbname=$nomeBancoMysql", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Banco de dados conectado com sucesso";
    
 }catch(Exception $e){
     echo "erro : ".$e->getMessage();
