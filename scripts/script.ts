@@ -42,10 +42,41 @@ fetch("./php/select.php")
     
             botao.addEventListener("click" , ()=> {
                 const ButId = botao.getAttribute("data-id");
+                if (ButId === null) {
+                    return;
+                }
+                if(botao.parentElement === null){
+                    return
+                };
+                const ButPai = botao.parentElement;
+
+                if(ButPai.parentElement === null){
+                    return;
+                }
+
+                const LinhaTable = ButPai.parentElement;
+
+
+
                  console.log(ButId);
-    });
+                 console.log(botao.parentElement.parentElement)
+
+                fetch("./php/delete.php", {
+                    method: "POST",
+                    body: new URLSearchParams({
+                        id: ButId
+                    })
+                })
+                .then((resposta)=>{
+                return resposta.text();
+                })
+                .then((resultado: string)=> {
+                    console.log(resultado);
+                    LinhaTable.remove();
+                })
+            });
 
     });
 
 
-})
+});
