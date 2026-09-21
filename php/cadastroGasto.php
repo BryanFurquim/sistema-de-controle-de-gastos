@@ -17,5 +17,8 @@ $ligarVarParametro->execute([
     ":valor" => $valor,
     ":data" => $data
 ]);
-echo " gasto cadastrado"
+echo " gasto cadastrado";
+
+header("Location: ../index.html");
+exit;
 ?>

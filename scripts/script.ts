@@ -1,9 +1,4 @@
-interface dadosDoFormulario {
-    description: string,
-    categoria:string,
-    valor: number,
-    data: Date
-}
+
 
 const forms = document.getElementById("formulario") as HTMLFormElement;
 
@@ -17,7 +12,7 @@ forms.addEventListener("submit", function(event){
 
     if(Number(valor.value) <= 0) {
         event.preventDefault();
-        alert("O valor tem que ser maior que zero!");
+        alert("O valor tem que ser maior que zero");
         return;
     }
 
@@ -29,19 +24,74 @@ const tabelaLancamentos = document.getElementById
 
 ("tabela-lancamentos") as HTMLTableSectionElement;
 
+const Vgasto: HTMLParagraphElement = document.querySelector(".Vgasto p") as HTMLParagraphElement;
+const Vdisponivel: HTMLParagraphElement = document.querySelector(".Vdisponivel p") as HTMLParagraphElement;
+const Vlimite: HTMLParagraphElement = document.querySelector(".Vlimite") as HTMLParagraphElement;
+
+const limite: number = Number(Vlimite.textContent.replace("R$", "").replace(".", "").replace(",", "."));
+console.log(typeof Number(limite));
+
+
+function caucularValores():void{
+    const valores = tabelaLancamentos.querySelectorAll<HTMLTableCellElement>("td:nth-child(4)")
+
+    let soma: number = 0;
+
+    valores.forEach((valorLancamento: HTMLTableCellElement): void =>{
+            console.log(valorLancamento.textContent)
+            if(valorLancamento === null){
+                return;
+            }
+
+            const ValorText: string = valorLancamento.textContent;
+            console.log(ValorText)
+            const ValorNum: number = Number(ValorText);
+            console.log(ValorNum)
+
+            soma = soma + ValorNum;
+
+            console.log(soma)
+
+            
+    });
+
+    const totalGasto: number = soma;
+    console.log(totalGasto)
+
+    const saldoDisponivel: number = limite - totalGasto;
+    console.log(saldoDisponivel)
+
+    Vgasto.textContent = totalGasto.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    });
+
+    Vdisponivel.textContent = saldoDisponivel.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    });
+
+
+
+
+}
+
+
 fetch("./php/select.php")
-    .then((resposta)=> {
+    .then((resposta) => {
         return resposta.text();
     })
     .then((html: string) => {
         tabelaLancamentos.innerHTML =html;
 
+        caucularValores();
+        
         const butExcluir = document.querySelectorAll(".excluir");
 
-        butExcluir.forEach((botao)=>{
+        butExcluir.forEach((botao) =>{
     
             botao.addEventListener("click" , ()=> {
-                const ButId = botao.getAttribute("data-id");
+                const ButId: string | null = botao.getAttribute("data-id");
                 if (ButId === null) {
                     return;
                 }
@@ -73,6 +123,7 @@ fetch("./php/select.php")
                 .then((resultado: string)=> {
                     console.log(resultado);
                     LinhaTable.remove();
+                    caucularValores();
                 })
             });
 
@@ -80,3 +131,4 @@ fetch("./php/select.php")
 
 
 });
+

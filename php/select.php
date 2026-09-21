@@ -2,8 +2,7 @@
 
 require("conexao.php");
 
-$sql = "SELECT * FROM gastos";
-$consultar = $pdo->prepare($sql);
+$consultar = $pdo->prepare("SELECT * FROM gastos");
 
 $consultar->execute();
 
