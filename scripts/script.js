@@ -7,7 +7,7 @@ const date = document.getElementById("idata");
 forms.addEventListener("submit", function (event) {
     if (Number(valor.value) <= 0) {
         event.preventDefault();
-        alert("O valor tem que ser maior que zero!");
+        alert("O valor tem que ser maior que zero");
         return;
     }
     alert("Gasto lançado, confira na tabela de lançamentos abaixo");
@@ -17,7 +17,6 @@ const tabelaLancamentos = document.getElementById("tabela-lancamentos");
 const Vgasto = document.querySelector(".Vgasto p");
 const Vdisponivel = document.querySelector(".Vdisponivel p");
 const Vlimite = document.querySelector(".Vlimite");
-console.log(Number(Vlimite.textContent.replace("R$", "").replace(".", "").replace(",", ".")));
 const limite = Number(Vlimite.textContent.replace("R$", "").replace(".", "").replace(",", "."));
 console.log(typeof Number(limite));
 function caucularValores() {
@@ -58,6 +57,10 @@ fetch("./php/select.php")
     const butExcluir = document.querySelectorAll(".excluir");
     butExcluir.forEach((botao) => {
         botao.addEventListener("click", () => {
+            const confirmarEnvio = confirm("Você tem certeza que deseja excluir esse lançamento ?");
+            if (!confirmarEnvio) {
+                return;
+            }
             const ButId = botao.getAttribute("data-id");
             if (ButId === null) {
                 return;

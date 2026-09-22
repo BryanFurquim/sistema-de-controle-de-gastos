@@ -91,6 +91,10 @@ fetch("./php/select.php")
         butExcluir.forEach((botao) =>{
     
             botao.addEventListener("click" , ()=> {
+                const confirmarEnvio = confirm("Você tem certeza que deseja excluir esse lançamento ?")
+                if(!confirmarEnvio){
+                    return;
+                }
                 const ButId: string | null = botao.getAttribute("data-id");
                 if (ButId === null) {
                     return;
