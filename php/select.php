@@ -11,7 +11,7 @@ $gastos = $consultar-> fetchAll();
 foreach($gastos as $gasto){
 
     echo "<tr>";
-    echo "<td>" . $gasto["data"] . "</td>";
+    echo "<td>" . date("d/m/Y", strtotime($gasto["data"])) . "</td>";
     echo "<td>" . $gasto["descricao"] . "</td>";
     echo "<td>" . $gasto["categoria"] . "</td>";
     echo "<td>" . $gasto["valor"] . "</td>";
