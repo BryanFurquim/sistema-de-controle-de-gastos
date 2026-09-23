@@ -126,25 +126,27 @@ header{
   table{
     background: white;
     width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+
   }
 
   thead th{
-    border-top: 1px solid black;
-    border-right: 1px solid black;
-    
+    border: 1px solid black;
     text-align: left;
     font-weight: 630;
     color: #0f1722;
     padding: 10px;
-    border-bottom: 1px solid #24344a;
+    border-collapse: collapse;
+
   }
 
   tbody td{
+    border: 1px solid black;
     padding: 14px 10px;
     font-size: 13.5px;
     color: #24344a;
-    border-bottom: 1px solid #24344a;
-    border-right: 1px solid #24344a;
+    border-collapse: collapse;
   }
 
   .excluir {
